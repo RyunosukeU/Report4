@@ -1,5 +1,7 @@
 package jp.ac.uryukyu.ie.e205236;
 
+//import org.checkerframework.checker.formatter.qual.ReturnsFormat;
+
 /**
  * ヒーロークラス。
  *  String name; //敵の名前
@@ -9,10 +11,11 @@ package jp.ac.uryukyu.ie.e205236;
  * Created by tnal on 2016/11/13.
  */
 public class Hero {
-    public String name;
-    public int hitPoint;
-    public int attack;
-    public boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
+
 
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
@@ -33,9 +36,11 @@ public class Hero {
      * attackに応じて乱数でダメージを算出し、hero.wounded()によりダメージ処理を実行。
      * @param e 攻撃対象
      */
+
+
     public void attack(Enemy e){
         int damage = (int)(Math.random() * attack);
-        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, e.name, damage);
+        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, e.getName(), damage);
         e.wounded(damage);
     }
 
@@ -51,4 +56,69 @@ public class Hero {
             System.out.printf("勇者%sは道半ばで力尽きてしまった。\n", name);
         }
     }
+
+    /**
+     * 名前取得メソッド
+     * @return ヒーロー名
+     */
+    public String getName(){
+        return name;
+    }
+
+    /**
+     * ヒットポイント取得メソッド
+     * @return ヒーローのヒットポイント
+     */
+    public int getHitPoint(){
+        return hitPoint;
+    }
+
+    /**
+     * 攻撃力取得メソッド
+     * @return ヒーロー生存状態
+     */
+    public int getAttack(){
+        return attack;
+    }
+
+    /**
+     * 生存状態取得メソッド
+     * @return ヒーローの生存状態
+     */
+    public boolean isDead(){
+        return dead;
+    }
+
+    /**
+     * 名前を設定するメソッド
+     * @return name ヒーロー名
+     */
+    public void setName(String name){
+        this.name = name;
+    }
+
+    /**
+     * ヒットポイント設定メソッド
+     * @return hitpoint ヒーローのヒットポイント
+     */
+    public void setHitPoint(int hitPoint){
+        this.hitPoint = hitPoint;
+    }
+
+    /**
+     * 攻撃力設定メソッド
+     * @return attack ヒーロー攻撃力
+     */
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
+
+    /**
+     * 生存状態設定メソッド
+     * @return dead ヒーローの生存状態
+     */
+    public void setDead(boolean dead){
+        this.dead = dead;
+    }
+
 }
